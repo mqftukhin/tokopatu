@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+body {
+    --mainColor: #fff;
+    --secondColor: #333;
+    --mainColorAlt: #ddd;
+    --secondColorAlt: #222;
+    font-family: 'Montserrat', sans-serif;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    max-height: 100vh;
+    background-color: var(--mainColor);
+    transition: .5s;
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+section, footer {
+    scroll-snap-align: start;
+}
+
+#hero {
+    background-image: url(../img/hero.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+}
+.cover-hero {
+    background-color: rgba(0, 0, 0, .8);
+    width: 100%;
+    height: 100%;
+}
+nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+nav ul li {
+    list-style: none;
+    display: inline;
+    margin: 0 -.1em;
+    padding: .4em;
+}
+nav .brand {
+    color: #fff;
+    font-size: 1.5em;
+    font-style: italic;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2em; 
+}
+nav ul li a::before {
+    content: '';
+    background-color: #fff;
+    width: 0;
+    height: 1px;
+    display: inline;
+    position: absolute;
+    bottom: 2em;
+    text-align: center;
+    transition: .5s;
+}
+nav ul li a:hover::before {
+    width: 2.2em;
+}
+
+.hero-content {
+    width: 60%;
+    margin: auto;
+    position: absolute;
+    top: 22em;
+    left: calc(100vw - 80%);
+    text-align: center;
+}
+.hero-content > * {
+    color: #fff;
+    font-size: 1.1em;
+}
+.hero-content button {
+    margin: 1em 0;
+    border: solid 1px #fff;
+    padding: .6em;
+    transition: .5s;
+    cursor: pointer;
+    background: transparent;
+}
+.hero-content button a {
+    color: #fff;
+    text-decoration: none;
+    transition: .5s;
+}
+.hero-content button:hover {
+    background-color: #fff;
+}
+.hero-content button:hover a {
+    color: #333;
+}
+
+
+/* Recent Section */
+section#recents {
+    padding: 4em 0;
+}
+.cards-container {
+    height: 40%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 2em;
+    gap: 1em;
+}
+h2 {
+    grid-column: 1 / 4;
+    text-align: center;
+    color: var(--secondColor);
+}
+hr {
+    grid-column: 1 / 4;
+    background-color: var(--secondColor);
+    height: 3px;
+    width: 8em;
+    margin: 1em auto 2em;
+}
+#recents .cards {
+    border: solid 1px var(--secondColor);
+    padding: 1em;
+    text-align: center;
+}
+#recents .cards .description {
+    margin-top: 1em;
+    color: var(--secondColor);
+}
+#recents .cards img {
+    width: 10em;
+}
+
+
+/* All Collections Section */
+
+section#all-collections {
+    padding: 4em 2em 4em 2em;
+}
+.collections-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+#all-collections .collections-container {
+    border: solid 1px var(--secondColor);
+    padding: 1em;
+}
+#all-collections .collections-container img {
+    width: 100%;
+}
+
+
+/* About Section */
+
+section#about {
+    height: 100vh;
+    padding: 4em 2em;
+    text-align: center;
+    position: relative;
+    color: var(--secondColor);
+    font-style: italic;
+}
+
+
+/* Footer */
+
+footer {
+    font-size: .8em;
+    width: 100%;
+    height: 6em;
+    background-color: #333;
+    color: #fff;
+    padding: 2.5em 0 0 1em ;
+    text-align: center;
+}
+
+/* Dark Mode */
+button.btn-darkmode {
+    background-color: #ccc;
+    background-image: url(../img/moon.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 2em;
+    height: 3em;
+    width: 3em;
+    position: fixed;
+    bottom: 4em;
+    right: 2em;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .5s;
+}
+button.btn-darkmode:hover {
+    transform: scale(1.2);
+}
+
+/* Darkmode Active */
+.darkmode-active {
+    --mainColor: #333;
+    --secondColor: #ddd;
+}
+.btndarkmode-clicked {
+    background-image: url(../img/sun.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 2em;
+}
+.bg-darker-color {
+    background-color: var(--secondColorAlt);
+}
+.cart {
+    background-color: #333;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: row;
+    padding: 2vh 3em;
+    color: #ddd;
+    gap: 1em;
+    
+}
+#x {
+    position: absolute;
+    top: 3%;
+    right: 2em;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: large;
+}
+#c {
+    position: absolute;
+    bottom: 30%;
+    justify-self: center;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: large;
+}
+.btn-remove{
+    width: 6em;
+    background: none;
+    border: none;
+    color: #fff;
+}
+.cards-container input{
+    width: 3em;
+
+}
